@@ -1,0 +1,41 @@
+
+GET http://localhost:8000/api/categories
+Content-Type: application/json
+
+
+Store
+###
+POST http://localhost:8000/api/categories
+Content-Type: application/json
+
+{
+    "name":"dolor sit amet consectetur,/ adipisicing elit"
+}
+
+
+Show
+###
+GET http://localhost:8000/api/categories/content-slug
+Content-Type: application/json
+
+
+Update
+###
+PUT http://localhost:8000/api/categories/dolor-sit-amet-consectetur
+Content-Type: application/json
+
+{
+    "name":"dolor amet consectetur "
+}
+
+Delete
+###
+DELETE  http://localhost:8000/api/categories/dolor-amet-consectetur
+
+
+
+###
+GET http://localhost:8000/api/posts
+Content-Type: application/json
+
+
