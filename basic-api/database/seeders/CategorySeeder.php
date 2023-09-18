@@ -29,5 +29,8 @@ class CategorySeeder extends Seeder
             'name' => 'Docker',
             'slug' => 'docker'
         ]);
+        Category::factory()
+            ->count(10)
+            ->create();
     }
 }

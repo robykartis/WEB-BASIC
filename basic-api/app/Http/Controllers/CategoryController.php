@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
-use Illuminate\Http\Request;
+use App\Http\Requests\StoreCategoryRequest;
+use App\Http\Requests\UpdateCategoryRequest;
 use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Validator;
 
 class CategoryController extends Controller
 {
@@ -32,24 +32,14 @@ class CategoryController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreCategoryRequest $request)
     {
-        $validation = Validator::make($request->all(), [
-            'name' => 'required',
-        ], [
-            'name.required' => 'Name is required',
-        ]);
-        if ($validation->fails()) {
-            return response()->json([
-                'satus' => false,
-                'message' => $validation->errors()->first(),
-            ]);
-        }
+        // $request->validated();
         try {
 
             $category = new Category();
             $category->name = $request->name;
-            $category->slug =  Str::slug($request->name);
+            $category->slug =  $request->slug; //Str::slug($request->name);
             $category->save();
             return response()->json([
                 'satus' => true,
@@ -67,7 +57,7 @@ class CategoryController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $slug)
+    public function show($slug)
     {
         try {
             $category = Category::where('slug', $slug)->first();
@@ -92,24 +82,13 @@ class CategoryController extends Controller
         }
     }
 
+
+
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $slug)
+    public function update(UpdateCategoryRequest $request,  $slug)
     {
-        $validation = Validator::make($request->all(), [
-            'name' => 'required',
-        ], [
-            'name.required' => 'Nama wajib diisi',
-        ]);
-
-        if ($validation->fails()) {
-            return response()->json([
-                'status' => false,
-                'message' => $validation->errors()->first(),
-            ]);
-        }
-
         try {
             $category = Category::where('slug', $slug)->first();
             if (!$category) {
@@ -136,11 +115,10 @@ class CategoryController extends Controller
         }
     }
 
-
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $slug)
+    public function destroy($slug)
     {
         $category = Category::where('slug', $slug)->first();
         if (!$category) {
