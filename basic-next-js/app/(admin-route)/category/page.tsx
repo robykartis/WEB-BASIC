@@ -25,10 +25,7 @@ interface Category {
     name: string
     slug: string
 }
-interface Post {
-    id: number
-    title: string
-}
+
 
 async function getDataCategory() {
     const res = await fetch('http://localhost:8000/api/categories')
@@ -40,20 +37,10 @@ async function getDataCategory() {
     const data = await res.json()
     return data.data
 }
-async function getDataPosts() {
-    const res = await fetch('http://localhost:8000/api/posts')
 
-    if (!res.ok) {
-        throw new Error('Failed to fetch data')
-    }
-
-    const data = await res.json()
-    return data.data
-}
 
 export default async function CategoryPage() {
     const categories: Category[] = await getDataCategory()
-    const posts: Post[] = await getDataPosts()
     return (
         <main className="p-4">
 

@@ -1,4 +1,4 @@
-import Navbar from "@/components/Navbar"
+import NavbarHome from "@/components/Home/Navbar"
 import { Metadata } from "next"
 
 
@@ -15,9 +15,7 @@ export default function HomeLayout({
 }) {
     return (
         <main>
-            <nav>
-                <Navbar />
-            </nav>
+            <NavbarHome />
             {children}
         </main>
     )
