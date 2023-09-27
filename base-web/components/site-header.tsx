@@ -26,7 +26,7 @@ export function SiteHeader() {
   const [showMobileMenu, setShowMobileMenu] = React.useState<boolean>(false)
   return (
     <>
-      <div className="bg-white/10  backdrop-filter z-30 backdrop-blur-md bg-opacity-80 ">
+      <div className="  backdrop-filter z-30 backdrop-blur-md  ">
         <p className="text-center text-sm font-medium">
           Love Alpine JS?
           <a href="#" className="inline-block underline">
@@ -34,7 +34,7 @@ export function SiteHeader() {
           </a>
         </p>
       </div>
-      <header className="sticky top-0 w-full border-b bg-white/10  backdrop-filter z-30 backdrop-blur-md bg-opacity-80">
+      <header className="sticky top-0 w-full border-b  backdrop-filter z-30 backdrop-blur-md ">
         <div className="container flex h-16 items-center justify-between">
           <div className="flex gap-6 md:gap-10">
             <Link href="/" className="hidden items-center space-x-2 md:flex">
