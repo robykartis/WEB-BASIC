@@ -2,25 +2,25 @@ import { getServerSession } from "next-auth";
 import { ReactNode } from "react";
 import { nextAuthOptions } from "../api/auth/[...nextauth]/route";
 import { redirect } from "next/navigation";
-import SiteFooter from "@/components/site-footer";
+import NextAuthSessionProvider from "@/providers/sessionProvider";
 
 interface PrivateLayoutProps {
-  children: ReactNode
+  children: ReactNode;
 }
 
 export default async function PrivateLayout({ children }: PrivateLayoutProps) {
-  const session = await getServerSession(nextAuthOptions)
+  const session = await getServerSession(nextAuthOptions);
 
-  if (session) {
-    redirect('/dashboard')
+  if (!session) {
+    redirect("/");
   }
 
   return (
-
-    <main>
-      <div className="min-h-screen">{children}</div>
-      <SiteFooter />
-    </main>
-
-  )
+    <>
+      <NextAuthSessionProvider>
+        <nav>NavAdmin</nav>
+        {children}
+      </NextAuthSessionProvider>
+    </>
+  );
 }
