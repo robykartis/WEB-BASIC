@@ -2,6 +2,7 @@ import { getServerSession } from "next-auth";
 import { ReactNode } from "react";
 import { nextAuthOptions } from "../api/auth/[...nextauth]/route";
 import { redirect } from "next/navigation";
+import SiteFooter from "@/components/site-footer";
 
 interface PrivateLayoutProps {
   children: ReactNode
@@ -17,9 +18,8 @@ export default async function PrivateLayout({ children }: PrivateLayoutProps) {
   return (
 
     <main>
-      <div className="relative flex min-h-screen flex-col">
-        <div className="flex-1">{children}</div>
-      </div>
+      <div className="min-h-screen">{children}</div>
+      <SiteFooter />
     </main>
 
   )
