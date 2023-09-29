@@ -5,43 +5,16 @@ import { usePathname } from "next/navigation"
 
 import { cn } from "@/lib/utils"
 import { buttonVariants } from "@/components/ui/button"
-
-
-const items = [
-  {
-    title: "Dashboard",
-    href: "/dashboard",
-  },
-  {
-    title: "Account",
-    href: "/examples/forms/account",
-  },
-  {
-    title: "Appearance",
-    href: "/examples/forms/appearance",
-  },
-  {
-    title: "Notifications",
-    href: "/examples/forms/notifications",
-  },
-  {
-    title: "Display",
-    href: "/examples/forms/display",
-  },
-]
+import { DashboadrConfig } from "@/config/dashboard"
 
 export function SidebarNav() {
   const pathname = usePathname()
 
   return (
-    <aside className="-mx-4 lg:w-1/5">
-      <nav
-        className={cn(
-          "flex space-x-2 lg:flex-col lg:space-x-0 lg:space-y-1",
 
-        )}
-      >
-        {items.map((item) => (
+    <aside className={cn("-mx-4 lg:w-1/5", "hidden md:block")}>
+      <nav className={cn("flex flex-col space-y-1 lg:space-y-2")}>
+        {DashboadrConfig.mainSidebar.map((item) => (
           <Link
             key={item.href}
             href={item.href}
@@ -50,7 +23,7 @@ export function SidebarNav() {
               pathname === item.href
                 ? "bg-muted hover:bg-muted"
                 : "hover:bg-transparent hover:underline",
-              "justify-start"
+              "justify-start px-4 py-2" // Add this class for spacing
             )}
           >
             {item.title}
