@@ -3,13 +3,15 @@ import * as React from "react"
 import Link from "next/link";
 import { Icons } from "@/components/icons";
 import { ThemeToggle } from "@/components/theme-toggle";
-import { useSelectedLayoutSegment } from "next/navigation"
-import { Button } from "./ui/button";
 
+import { signOut } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 import { cn } from "@/lib/utils";
+import { Button } from "../ui/button";
+import { SidebarMobile } from "./SidebarMobile";
 
-const items: { title: string; href: string; description: string; disabled?: boolean }[] = [
+const items: { title: string; href: string; description: string; disable?: boolean }[] = [
   {
     title: "Alert Dialog",
     href: "/docs/primitives/alert-dialog",
@@ -20,19 +22,19 @@ const items: { title: string; href: string; description: string; disabled?: bool
 
 ]
 
-export function SiteHeader() {
-  const segment = useSelectedLayoutSegment()
+export function MainNav() {
   const [showMobileMenu, setShowMobileMenu] = React.useState<boolean>(false)
+  const router = useRouter();
+  async function logout() {
+    await signOut({
+      redirect: false,
+    });
+
+    router.replace("/");
+  }
   return (
     <>
-      <div className="  backdrop-filter z-30 backdrop-blur-md  ">
-        <p className="text-center text-sm font-medium">
-          Love Alpine JS?
-          <a href="#" className="inline-block underline">
-            Check out this new course!
-          </a>
-        </p>
-      </div>
+
       <header className="sticky top-0 w-full border-b  backdrop-filter z-30 backdrop-blur-md ">
         <div className="container flex h-16 items-center justify-between">
           <div className="flex gap-6 md:gap-10">
@@ -51,10 +53,7 @@ export function SiteHeader() {
                     href={'/'}
                     className={cn(
                       "flex items-center text-lg font-medium transition-colors hover:text-foreground/80 sm:text-sm",
-                      item.href.startsWith(`/${segment}`)
-                        ? "text-foreground"
-                        : "text-foreground/60",
-                      item.disabled && "cursor-not-allowed opacity-80"
+
                     )}
                   >
                     {item.title}
@@ -80,28 +79,18 @@ export function SiteHeader() {
                     <Icons.logo />
                     <span className="font-bold">Web APP</span>
                   </Link>
-                  <nav className="grid grid-flow-row auto-rows-max text-sm">
-                    {items.map((item, index) => (
-                      <Link
-                        key={index}
-                        href={'/'}
-                        className={cn(
-                          "flex w-full items-center rounded-md p-2 text-sm font-medium hover:underline"
-                        )}
-                      >
-                        {item.title}
-                      </Link>
-                    ))}
-                  </nav>
-                  sadadsada
+                  <SidebarMobile />
+
                 </div>
               </div>
             )}
           </div>
           <div className="flex items-center justify-end space-x-4">
-            <Link href="/login">
-              <Button>Login</Button>
-            </Link>
+
+            <Button
+              onClick={logout}
+            >Logout</Button>
+
             {/* <ThemeToggle /> */}
           </div>
         </div>

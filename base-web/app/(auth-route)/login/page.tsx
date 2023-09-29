@@ -1,4 +1,4 @@
-"use client";
+'use client'
 
 import * as React from "react"
 import { Icons } from "@/components/icons";
@@ -138,38 +138,5 @@ export default function LoginPage() {
       </div>
     </div>
 
-
-
-
-
-
-    // <div className="flex flex-col items-center justify-center w-full h-screen">
-    //   <h1 className="text-3xl mb-6">Login </h1>
-
-    //   <form className="w-[400px] flex flex-col gap-6" onSubmit={handleSubmit}>
-    //     <input
-    //       className="h-12 rounded-md p-2 bg-transparent border border-gray-300"
-    //       type="text"
-    //       name="email"
-    //       placeholder="Masukan Email"
-    //       onChange={(e) => setEmail(e.target.value)}
-    //     />
-
-    //     <input
-    //       className="h-12 rounded-md p-2 bg-transparent border border-gray-300"
-    //       type="password"
-    //       name="password"
-    //       placeholder="Masukan Password"
-    //       onChange={(e) => setPassword(e.target.value)}
-    //     />
-
-    //     <button
-    //       type="submit"
-    //       className="h-12 rounded-md bg-gray-300 text-gray-800 hover:bg-gray-400"
-    //     >
-    //       Login
-    //     </button>
-    //   </form>
-    // </div>
   );
 }
