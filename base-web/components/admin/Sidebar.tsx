@@ -8,28 +8,33 @@ import { buttonVariants } from "@/components/ui/button"
 import { DashboadrConfig } from "@/config/dashboard"
 
 export function SidebarNav() {
-  const pathname = usePathname()
+  const path = usePathname()
 
   return (
-
-    <aside className={cn("-mx-4 lg:w-1/5", "hidden md:block")}>
-      <nav className={cn("flex flex-col space-y-1 lg:space-y-2")}>
-        {DashboadrConfig.mainSidebar.map((item) => (
-          <Link
-            key={item.href}
-            href={item.href}
-            className={cn(
-              buttonVariants({ variant: "ghost" }),
-              pathname === item.href
-                ? "bg-muted hover:bg-muted"
-                : "hover:bg-transparent hover:underline",
-              "justify-start px-4 py-2" // Add this class for spacing
-            )}
-          >
-            {item.title}
-          </Link>
-        ))}
+    <aside className="hidden w-[200px] flex-col md:flex ">
+      <nav className="grid items-start gap-2">
+        {DashboadrConfig.mainSidebar.map((item, index) => {
+          return (
+            item.href && (
+              <Link key={index} href={item.disabled ? "/" : item.href}>
+                <span
+                  className={cn(
+                    "group flex items-center rounded-md px-3 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground",
+                    path === item.href ? "bg-accent" : "transparent",
+                    item.disabled && "cursor-not-allowed opacity-80"
+                  )}
+                >
+                  {/* <Icons className="mr-2 h-4 w-4" /> */}
+                  <span>{item.title}</span>
+                </span>
+              </Link>
+            )
+          )
+        })}
       </nav>
+
+
+
     </aside>
   )
 }

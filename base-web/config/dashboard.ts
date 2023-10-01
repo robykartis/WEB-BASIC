@@ -8,21 +8,14 @@ export const DashboadrConfig = {
       href: "/dashboard",
     },
     {
-      title: "Account",
-      href: "/examples/forms/account",
+      title: "Category",
+      href: "/category",
     },
     {
-      title: "Appearance",
-      href: "/examples/forms/appearance",
+      title: "Posts",
+      href: "/posts",
     },
-    {
-      title: "Notifications",
-      href: "/examples/forms/notifications",
-    },
-    {
-      title: "Display",
-      href: "/examples/forms/display",
-    },
+
   ],
 
 }
