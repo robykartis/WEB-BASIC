@@ -6,16 +6,18 @@ export const DashboadrConfig = {
     {
       title: "Dashboard",
       href: "/dashboard",
+      disabled: false
     },
     {
       title: "Category",
       href: "/category",
+      disabled: false
     },
     {
       title: "Posts",
       href: "/posts",
+      disabled: false
     },
-
   ],
 
 }

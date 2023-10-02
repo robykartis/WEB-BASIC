@@ -24,21 +24,10 @@ export default async function PrivateLayout({ children }: PrivateLayoutProps) {
     <>
       <NextAuthSessionProvider>
         <MainNav />
-        <div className="container">
-          <div className=" space-y-6 p-10 pb-16 md:block">
-            <div className="space-y-0.5">
-              <h2 className="text-2xl font-bold tracking-tight">Dashboard</h2>
-
-            </div>
-            <div className="container grid flex-1 gap-12 md:grid-cols-[200px_1fr]">
-              <SidebarNav />
-              <div className="flex-1 ">{children}
-
-              </div>
-            </div>
-          </div>
-          <SiteFooter />
+        <div className="flex pb-28">
+          {children}
         </div>
+        <SiteFooter />
       </NextAuthSessionProvider>
     </>
   );

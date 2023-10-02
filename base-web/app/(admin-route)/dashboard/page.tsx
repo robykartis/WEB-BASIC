@@ -1,17 +1,113 @@
 'use client'
 import { Separator } from '@/components/ui/separator'
 import React from 'react'
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 
 export default function DashboardPage() {
   return (
-    <div className="space-y-6">
-      <div>
-        <h3 className="text-lg font-medium">Profile</h3>
-        <p className="text-sm text-muted-foreground">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quasi tenetur enim beatae aspernatur velit porro veniam, optio ea facere ut rerum, est similique aut tempora molestiae ex voluptate repudiandae quos ipsa, adipisci minus. Cupiditate, temporibus maiores neque, sequi unde ipsa aut maxime doloribus eveniet provident tempore cum dolores ex fugiat dignissimos quasi deserunt harum sed! Sequi, consectetur? Repellendus voluptatum dicta asperiores laudantium commodi repudiandae distinctio quisquam accusantium officia molestiae! Non necessitatibus beatae dolor rerum inventore doloremque eveniet enim velit quis ratione itaque distinctio quibusdam placeat animi aliquid ipsum, nemo, unde accusamus totam omnis minus! Natus, sint obcaecati. Voluptate labore, sapiente corporis mollitia cumque, asperiores sit possimus, aut aspernatur et inventore. Tenetur nisi voluptates repellendus, odio soluta, minima asperiores, quae quidem quaerat porro eius voluptatum aliquid quod laborum. Voluptas omnis provident reprehenderit repellendus iste ipsam maiores maxime cum? Reiciendis eligendi quaerat dicta repellendus adipisci vitae ad velit quod quibusdam quidem, iure ullam odit sequi sapiente. Cupiditate dolor est nisi doloribus ut eius in corporis quaerat blanditiis odio similique natus quidem maiores, quia dolorem tempora fuga! Natus, consectetur ratione. Quaerat placeat cupiditate recusandae pariatur quis, nostrum impedit iure tenetur unde? Quis nisi ratione amet harum? Adipisci delectus laudantium ipsum reiciendis, at corrupti debitis perferendis omnis non, autem et explicabo recusandae labore numquam quas ex commodi assumenda minima doloremque sed quis vel aperiam. Voluptatum aliquam, porro quis, quibusdam debitis natus, quo ea fugiat tempore deserunt obcaecati corporis vero. Veniam repudiandae debitis dolorem ullam impedit repellendus assumenda, deserunt rem. Eaque neque atque iusto molestiae. Repellendus culpa debitis exercitationem voluptatum sint officiis quisquam accusamus! Ducimus repellat laborum accusamus consequatur, quisquam ut aspernatur quo voluptates. Autem temporibus voluptate dicta cum rerum quas neque ex molestiae, nostrum incidunt deleniti accusantium tempore officia, adipisci facilis nulla voluptatibus in! Officiis eum asperiores, a perferendis sapiente in voluptas nesciunt aliquid!
-        </p>
+    <div className="container mx-auto mt-12">
+      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+        <Card>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium">
+              Total Revenue
+            </CardTitle>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              className="h-4 w-4 text-muted-foreground"
+            >
+              <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+            </svg>
+          </CardHeader>
+          <CardContent>
+            <div className="text-2xl font-bold">$45,231.89</div>
+            <p className="text-xs text-muted-foreground">
+              +20.1% from last month
+            </p>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium">
+              Subscriptions
+            </CardTitle>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              className="h-4 w-4 text-muted-foreground"
+            >
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+              <circle cx="9" cy="7" r="4" />
+              <path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
+            </svg>
+          </CardHeader>
+          <CardContent>
+            <div className="text-2xl font-bold">+2350</div>
+            <p className="text-xs text-muted-foreground">
+              +180.1% from last month
+            </p>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium">Sales</CardTitle>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              className="h-4 w-4 text-muted-foreground"
+            >
+              <rect width="20" height="14" x="2" y="5" rx="2" />
+              <path d="M2 10h20" />
+            </svg>
+          </CardHeader>
+          <CardContent>
+            <div className="text-2xl font-bold">+12,234</div>
+            <p className="text-xs text-muted-foreground">
+              +19% from last month
+            </p>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium">Active Now</CardTitle>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              className="h-4 w-4 text-muted-foreground"
+            >
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+            </svg>
+          </CardHeader>
+          <CardContent>
+            <div className="text-2xl font-bold">+573</div>
+            <p className="text-xs text-muted-foreground">
+              +201 since last hour
+            </p>
+          </CardContent>
+        </Card>
       </div>
-      <Separator />
+
     </div>
   )
 }
