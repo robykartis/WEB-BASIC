@@ -6,6 +6,9 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 
 import * as React from "react"
+import SiteFooter from "../site-footer"
+import { ThemeToggle } from "../theme-toggle"
+import FooterAdmin from './Footer';
 export function SidebarNav({ open, setOpen }: any) {
 
   const path = usePathname()
@@ -13,11 +16,11 @@ export function SidebarNav({ open, setOpen }: any) {
   return (
     <div className={`fixed inset-y-0 left-0 z-40 flex-shrink-0 ${open ? "" : "hidden lg:block"}`}>
       <div
-        className={` ${open ? "w-40" : "w-60"} flex flex-col h-screen p-3 bg-blend-lighten shadow duration-300`}
+        className={` ${open ? "w-40" : "w-60"} flex flex-col h-screen p-3 backdrop-blur-lg shadow duration-300`}
       >
         <div className="space-y-3">
           <div className="flex items-center justify-between py-3">
-            <h2 className="text-xl font-bold ">Dashboard</h2>
+            <h2 className="text-xl font-bold ">MTI</h2>
             {/* Tombol untuk menyembunyikan Sidebar pada tampilan mobile */}
             <button onClick={() => setOpen(!open)} >
               <svg
@@ -69,6 +72,7 @@ export function SidebarNav({ open, setOpen }: any) {
               ))}
             </ul>
           </div>
+          <FooterAdmin />
         </div>
       </div>
     </div>

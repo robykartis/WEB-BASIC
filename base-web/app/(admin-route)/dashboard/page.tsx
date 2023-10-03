@@ -1,16 +1,18 @@
-'use client'
-import { Separator } from '@/components/ui/separator'
+
 import React from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { getServerSession } from 'next-auth';
+import { nextAuthOptions } from '@/app/api/auth/[...nextauth]/route';
 
-export default function DashboardPage() {
+export default async function DashboardPage() {
+  const session = await getServerSession(nextAuthOptions);
   return (
     <div className="container mx-auto mt-12">
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">
-              Total Revenue
+              {session?.user?.name}
             </CardTitle>
             <svg
               xmlns="http://www.w3.org/2000/svg"

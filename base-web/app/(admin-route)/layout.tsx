@@ -27,7 +27,7 @@ export default async function PrivateLayout({ children }: PrivateLayoutProps) {
         <div className="flex pb-28">
           {children}
         </div>
-        <SiteFooter />
+        {/* <SiteFooter /> */}
       </NextAuthSessionProvider>
     </>
   );
