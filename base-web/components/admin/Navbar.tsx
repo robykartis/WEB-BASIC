@@ -2,20 +2,9 @@
 import * as React from "react"
 import Link from "next/link";
 import {
-  Cloud,
-  CreditCard,
-  Github,
-  Keyboard,
-  LifeBuoy,
   LogOut,
-  Mail,
-  MessageSquare,
-  Plus,
-  PlusCircle,
   Settings,
   User,
-  UserPlus,
-  Users,
 } from "lucide-react"
 import {
   DropdownMenu,
@@ -23,12 +12,8 @@ import {
   DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuLabel,
-  DropdownMenuPortal,
   DropdownMenuSeparator,
   DropdownMenuShortcut,
-  DropdownMenuSub,
-  DropdownMenuSubContent,
-  DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 
@@ -62,65 +47,67 @@ export function MainNav() {
     router.replace("/");
   }
   return (
-    <header className="bg-blend-lighten border-b p-4">
-      <div className="container mx-auto flex justify-between items-center">
-        <div className="flex items-center space-x-4">
-          {/* Tombol Menu Mobile */}
-          <button
-            onClick={() => setOpen(!open)}
-            className=" lg:hidden"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="w-6 h-6"
+    <div className="relative z-50">
+      <header className="bg-blend-lighten border-b p-4 relative">
+        <div className="container mx-auto flex justify-between items-center">
+          <div className="flex items-center space-x-4">
+            {/* Tombol Menu Mobile */}
+            <button
+              onClick={() => setOpen(!open)}
+              className=" lg:hidden"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M3 12h18M3 6h18M3 18h18"
-              />
-            </svg>
-          </button>
-          <h1 className=" text-2xl font-semibold"><Link href={'/'}>Home</Link></h1>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="w-6 h-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M3 12h18M3 6h18M3 18h18"
+                />
+              </svg>
+            </button>
+            <h1 className=" text-2xl font-semibold"><Link href={'/'}>Home</Link></h1>
+          </div>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="outline">Open</Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="w-56">
+              <DropdownMenuLabel>My Account</DropdownMenuLabel>
+              <DropdownMenuSeparator />
+              <DropdownMenuGroup>
+                <DropdownMenuItem>
+                  <User className="mr-2 h-4 w-4" />
+                  <span>Profile</span>
+                  <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
+                </DropdownMenuItem>
+
+                <DropdownMenuItem>
+                  <Settings className="mr-2 h-4 w-4" />
+                  <span>Settings</span>
+                  <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
+                </DropdownMenuItem>
+
+              </DropdownMenuGroup>
+              <DropdownMenuSeparator />
+
+              <DropdownMenuItem>
+                <LogOut className="mr-2 h-4 w-4" />
+
+                <button onClick={logout}>Log out</button>
+                <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="outline">Open</Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent className="w-56">
-            <DropdownMenuLabel>My Account</DropdownMenuLabel>
-            <DropdownMenuSeparator />
-            <DropdownMenuGroup>
-              <DropdownMenuItem>
-                <User className="mr-2 h-4 w-4" />
-                <span>Profile</span>
-                <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
-              </DropdownMenuItem>
 
-              <DropdownMenuItem>
-                <Settings className="mr-2 h-4 w-4" />
-                <span>Settings</span>
-                <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
-              </DropdownMenuItem>
-
-            </DropdownMenuGroup>
-            <DropdownMenuSeparator />
-
-            <DropdownMenuItem>
-              <LogOut className="mr-2 h-4 w-4" />
-
-              <button onClick={logout}>Log out</button>
-              <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
-            </DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
-      </div>
-      {/* Sidebar yang akan muncul saat tombol menu ditekan */}
-      <SidebarNav open={open} setOpen={setOpen} />
-    </header>
+        <SidebarNav open={open} setOpen={setOpen} />
+      </header>
+    </div>
   );
 }

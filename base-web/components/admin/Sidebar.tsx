@@ -21,7 +21,7 @@ export function SidebarNav({ open, setOpen }: any) {
         <div className="space-y-3">
           <div className="flex items-center justify-between py-3">
             <h2 className="text-xl font-bold ">MTI</h2>
-            {/* Tombol untuk menyembunyikan Sidebar pada tampilan mobile */}
+
             <button onClick={() => setOpen(!open)} >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -40,6 +40,7 @@ export function SidebarNav({ open, setOpen }: any) {
             </button>
           </div>
           <div className="flex-1 overflow-y-auto max-h-[calc(100vh-5rem)] py-7">
+            {/* Konten sidebar dan daftar menu */}
             <ul className="pt-2 pb-4 space-y-1 text-sm mb-10">
               {/* Tambahkan daftar menu Anda di sini */}
               {DashboadrConfig.mainSidebar.map((item, index) => (
@@ -72,9 +73,10 @@ export function SidebarNav({ open, setOpen }: any) {
               ))}
             </ul>
           </div>
-          <FooterAdmin />
+          {/* <FooterAdmin /> */}
         </div>
       </div>
     </div>
+
   )
 }
