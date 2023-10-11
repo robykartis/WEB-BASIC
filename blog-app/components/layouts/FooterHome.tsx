@@ -21,7 +21,7 @@ export default function FooterHome() {
                             <Footer.Title title="about" />
                             <Footer.LinkGroup col>
                                 <Footer.Link href="#">
-                                    Flowbite
+                                    Mituni
                                 </Footer.Link>
                                 <Footer.Link href="#">
                                     Tailwind CSS
@@ -55,7 +55,7 @@ export default function FooterHome() {
                 <Footer.Divider />
                 <div className="w-full sm:flex sm:items-center sm:justify-between">
                     <Footer.Copyright
-                        by="Flowbite™"
+                        by="Mituni™"
                         href="#"
                         year={2022}
                     />

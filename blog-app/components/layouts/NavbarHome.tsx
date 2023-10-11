@@ -7,7 +7,7 @@ export default function NavbarHome() {
     return (
         <Navbar
             fluid
-            className='border-b sticky backdrop-blur-lg bg-white/75 top-0 z-50'
+            className='border-b sticky backdrop-blur-lg bg-white/75 top-0 z-50  dark:bg-opacity-90'
         >
             <Navbar.Brand href="https://flowbite-react.com">
                 <img
@@ -16,11 +16,11 @@ export default function NavbarHome() {
                     src="assets/logo/logo.png"
                 />
                 <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
-                    MTI
+                    Mituni
                 </span>
             </Navbar.Brand>
             <div className="flex md:order-2 gap-2">
-                <Button>
+                <Button gradientMonochrome="teal">
                     Get started
                 </Button>
                 <Navbar.Toggle />
