@@ -2,7 +2,9 @@
 import React from 'react'
 import NavbarHome from './NavbarHome'
 import FooterHome from './FooterHome'
-import { DarkThemeToggle, Flowbite } from 'flowbite-react';
+import {  Flowbite } from 'flowbite-react';
+
+
 
 export default function BaseLayoutHome({
     children,
@@ -16,6 +18,8 @@ export default function BaseLayoutHome({
                 {children}
                 <FooterHome />
             </Flowbite>
+            
+        
         </>
     )
 }

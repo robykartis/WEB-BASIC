@@ -1,9 +1,29 @@
 'use client';
+import { usePathname } from 'next/navigation'
+import {DarkThemeToggle, Button, Navbar } from 'flowbite-react';
 
-import { Button, Navbar } from 'flowbite-react';
-import { DarkThemeToggle } from 'flowbite-react';
+
+const items =[
+    {
+        title: "Home",
+        href: "#",
+        active:false
+    },
+    {
+        title: "Fiture",
+        href: "#",
+        active:false
+    },
+    {
+        title: "Device",
+        href: "#",
+        active:false
+    }
+]
 
 export default function NavbarHome() {
+    const pathname = usePathname()
+    
     return (
         <Navbar
             fluid
@@ -24,29 +44,20 @@ export default function NavbarHome() {
                     Get started
                 </Button>
                 <Navbar.Toggle />
-                <DarkThemeToggle />
+                {/* <DarkThemeToggle /> */}
             </div>
             <Navbar.Collapse>
-                <Navbar.Link
-                    active
-                    href="#"
-                >
-                    <p>
-                        Home
-                    </p>
-                </Navbar.Link>
-                <Navbar.Link href="#">
-                    About
-                </Navbar.Link>
-                <Navbar.Link href="#">
-                    Services
-                </Navbar.Link>
-                <Navbar.Link href="#">
-                    Pricing
-                </Navbar.Link>
-                <Navbar.Link href="#">
-                    Contact
-                </Navbar.Link>
+                {items.map((item, index) => (
+                    <Navbar.Link
+                        key={index}
+                        href={item.href}
+                        active={item.active}
+                    >
+                        {item.title}
+                    </Navbar.Link>
+                ))}
+               
+              
             </Navbar.Collapse>
         </Navbar>
     )
