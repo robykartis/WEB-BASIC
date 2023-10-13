@@ -10,9 +10,9 @@ export default function FooterHome() {
                 <div className="grid w-full  justify-between sm:flex sm:justify-between md:flex md:grid-cols-1">
                     <div>
                         <Footer.Brand
-                            alt="Flowbite Logo"
+                            alt="Mituni Logo"
                             href="https://flowbite.com"
-                            name="Flowbite"
+                            name="Mituni"
                             src="assets/logo/logo.png"
                         />
                     </div>
