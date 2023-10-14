@@ -1,17 +1,19 @@
 'use client';
 import { usePathname } from 'next/navigation'
-import {DarkThemeToggle, Button, Navbar } from 'flowbite-react';
+import {Button, Navbar } from 'flowbite-react';
+import Link from 'next/link';
+
 
 
 const items =[
     {
         title: "Home",
-        href: "#",
+        href: "/",
         active:false
     },
     {
-        title: "Fiture",
-        href: "#",
+        title: "Blog",
+        href: "/blog",
         active:false
     },
     {
@@ -50,10 +52,11 @@ export default function NavbarHome() {
                 {items.map((item, index) => (
                     <Navbar.Link
                         key={index}
-                        href={item.href}
-                        active={item.active}
+                        active={pathname === item.href}
                     >
+                        <Link href={item.href}>
                         {item.title}
+                        </Link>
                     </Navbar.Link>
                 ))}
                
