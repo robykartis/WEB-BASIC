@@ -1,31 +1,30 @@
 'use client';
 import { usePathname } from 'next/navigation'
-import {Button, Navbar } from 'flowbite-react';
-import Link from 'next/link';
+import { Button, Navbar, } from 'flowbite-react';
 
 
 
-const items =[
+const items = [
     {
         title: "Home",
         href: "/",
-        active:false
+        active: false
     },
     {
         title: "Blog",
         href: "/blog",
-        active:false
+        active: false
     },
     {
         title: "Device",
         href: "#",
-        active:false
+        active: false
     }
 ]
 
 export default function NavbarHome() {
     const pathname = usePathname()
-    
+
     return (
         <Navbar
             fluid
@@ -52,15 +51,16 @@ export default function NavbarHome() {
                 {items.map((item, index) => (
                     <Navbar.Link
                         key={index}
+                        href={item.href}
                         active={pathname === item.href}
                     >
-                        <Link href={item.href}>
+
                         {item.title}
-                        </Link>
+
                     </Navbar.Link>
                 ))}
-               
-              
+
+
             </Navbar.Collapse>
         </Navbar>
     )
